@@ -1,8 +1,6 @@
 package ru.praktikum_services.qa_scooter.steps;
 
 import io.qameta.allure.Step;
-import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper;
-import io.qameta.allure.internal.shadowed.jackson.databind.node.ObjectNode;
 import io.restassured.response.ValidatableResponse;
 import ru.praktikum_services.qa_scooter.model.Courier;
 
