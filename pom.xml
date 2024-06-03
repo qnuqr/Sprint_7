@@ -51,7 +51,7 @@
                         <property>
                             <!-- папка, в которую будут генерироваться отчёты Allure -->
                             <name>allure.results.directory</name>
-                            <value>C:\Users\ААА\Desktop\Praktikum\allure\allure-results</value>
+                            <value>${project.build.directory}/allure-results</value>
                         </property>
                     </systemProperties>
                 </configuration>
