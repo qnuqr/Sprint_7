@@ -6,7 +6,7 @@ import org.junit.Test;
 import ru.praktikum_services.qa_scooter.model.Courier;
 import ru.praktikum_services.qa_scooter.steps.CourierSteps;
 
-import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.CoreMatchers.is;
 
 public class CourierNegativeTest extends AbstractTest {
     private CourierSteps courierSteps = new CourierSteps();
@@ -21,12 +21,10 @@ public class CourierNegativeTest extends AbstractTest {
 
     @Test
     public void loginCourierWithNonExistentData() {
-        courier.setLogin("MmMmM1");
-        courier.setPassword("456qwer");
         courierSteps
                 .login(courier)
                 .statusCode(404)
-                .body("message", notNullValue());
+                .body("message", is("Учетная запись не найдена"));
     }
 
     @Test
@@ -36,7 +34,7 @@ public class CourierNegativeTest extends AbstractTest {
         courierSteps
                 .login(courier)
                 .statusCode(400)
-                .body("message", notNullValue());
+                .body("message", is("Недостаточно данных для входа"));
     }
 
     @Test
@@ -45,7 +43,7 @@ public class CourierNegativeTest extends AbstractTest {
         courierSteps
                 .createCourier(courier)
                 .statusCode(400)
-                .body("message", notNullValue());
+                .body("message", is("Недостаточно данных для создания учетной записи"));
     }
 
     @Test
@@ -54,7 +52,7 @@ public class CourierNegativeTest extends AbstractTest {
         courierSteps
                 .createCourier(courier)
                 .statusCode(400)
-                .body("message", notNullValue());
+                .body("message", is("Недостаточно данных для создания учетной записи"));
     }
 
     @Test
@@ -66,7 +64,7 @@ public class CourierNegativeTest extends AbstractTest {
         courierSteps
                 .createCourier(courier)
                 .statusCode(409)
-                .body("message", notNullValue());
+                .body("message", is("Этот логин уже используется"));
     }
 
 }
